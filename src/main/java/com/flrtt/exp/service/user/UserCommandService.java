@@ -1,0 +1,38 @@
+package com.flrtt.exp.service.user;
+
+
+import com.flrtt.exp.dto.user.User;
+import com.flrtt.exp.repository.database.user.UserEntity;
+import com.flrtt.exp.repository.database.user.UserMapper;
+import com.flrtt.exp.repository.database.user.UserRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+@Service
+@RequiredArgsConstructor
+public class UserCommandService {
+    private final UserRepository userRepository;
+    private final UserMapper userMapper;
+    private final PasswordEncoder passwordEncoder;
+
+    public User create(User request) {
+        UserEntity entity = userMapper.toEntity(request);
+        String encodedPassword = passwordEncoder.encode(entity.getPassword());
+        entity.setPassword(encodedPassword);
+        return userMapper.toDTO(userRepository.save(entity));
+    }
+
+    public void updateUser(String id, User request) {
+        UserEntity entity = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        entity.setPassword(request.password());
+        userMapper.toDTO(userRepository.save(entity));
+    }
+
+    public void delete(String id) {
+        UserEntity entity = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        userRepository.delete(entity);
+    }
+}

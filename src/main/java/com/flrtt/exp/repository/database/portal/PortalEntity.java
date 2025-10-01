@@ -1,0 +1,25 @@
+package com.flrtt.exp.repository.database.portal;
+
+import com.flrtt.exp.repository.database.property.PropertyEntity;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.FieldDefaults;
+import java.util.Set;
+
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@FieldDefaults(level = lombok.AccessLevel.PRIVATE)
+public class PortalEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    String id;
+    String name;
+    String description;
+
+    @ManyToMany(mappedBy = "portals")
+    private Set<PropertyEntity> properties;
+}
