@@ -12,6 +12,7 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "portals")
 @FieldDefaults(level = lombok.AccessLevel.PRIVATE)
 public class PortalEntity {
     @Id

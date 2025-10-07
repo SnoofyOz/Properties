@@ -13,6 +13,7 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "properties")
 @FieldDefaults(level = lombok.AccessLevel.PRIVATE)
 public class PropertyEntity {
     @Id

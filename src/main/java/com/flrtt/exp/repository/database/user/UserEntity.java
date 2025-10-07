@@ -12,6 +12,7 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "users")
 @FieldDefaults(level = lombok.AccessLevel.PRIVATE)
 public class UserEntity {
     @Id

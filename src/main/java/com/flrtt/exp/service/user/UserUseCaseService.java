@@ -3,6 +3,7 @@ package com.flrtt.exp.service.user;
 
 import com.flrtt.exp.dto.user.User;
 import com.flrtt.exp.dto.user.UserId;
+import com.flrtt.exp.dto.user.UserName;
 import jakarta.transaction.Transactional;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -30,6 +31,10 @@ public class UserUseCaseService {
 
     public User findById(UserId id) {
         return queryService.findById(id);
+    }
+
+    public User findByUsername(UserName username) {
+        return queryService.findByUsername(username);
     }
 
     public List<User> findAll(String code) {
