@@ -55,6 +55,14 @@ public class JwtService {
         final Claims claims = extractAllClaims(token);
         return claimsResolver.apply(claims);
     }
+    public String extractPropertyId(String token) {
+        Claims claims = extractAllClaims(token);
+        Object propertyId = claims.get("propertyId");
+        if (propertyId instanceof String) {
+            return propertyId.toString();
+        }
+        return null;
+    }
 
     public boolean isTokenValid(String token, UserDetails userDetails) {
         final String username = extractUsername(token);

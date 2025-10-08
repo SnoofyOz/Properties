@@ -7,7 +7,7 @@ import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 
-@RequestMapping("/api/users")
+@RequestMapping("/v1/api/users")
 public interface UserInterface {
     @GetMapping("/{username}")
     User findByUsername(@PathVariable String username);

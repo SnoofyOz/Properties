@@ -21,12 +21,12 @@ public class UserUseCaseService {
 
     @Transactional
     public User createUser(User request) {
-        return commandService.create(request);
+        return commandService.save(request);
     }
 
     @Transactional
     public void updateUser(String id, User request) {
-        commandService.updateUser(id, request);
+        commandService.update(id, request);
     }
 
     public User findById(UserId id) {
@@ -39,6 +39,10 @@ public class UserUseCaseService {
 
     public List<User> findAll(String code) {
         return queryService.findAll();
+    }
+
+    public List<User> findAllByOrderByUsernameAsc(String code) {
+        return queryService.findByUsernameDetails();
     }
 
     @Transactional

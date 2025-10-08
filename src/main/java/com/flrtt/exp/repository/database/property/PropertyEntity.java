@@ -19,16 +19,5 @@ public class PropertyEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     String id;
-    String propertyname;
-
-    @ManyToMany(mappedBy = "properties")
-    Set<UserEntity> users;
-
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "property_portal",
-            joinColumns = @JoinColumn(name = "property_id"),
-            inverseJoinColumns = @JoinColumn(name = "portal_id")
-    )
-    private Set<PortalEntity> portals;
+    String propertyName;
 }

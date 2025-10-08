@@ -8,6 +8,7 @@ import com.flrtt.exp.repository.database.user.UserEntity;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Set;
 
 @RequiredArgsConstructor
 public class UserInfoDetails implements UserDetails {

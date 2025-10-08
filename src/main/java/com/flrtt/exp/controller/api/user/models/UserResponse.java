@@ -1,9 +1,12 @@
 package com.flrtt.exp.controller.api.user.models;
 
 public record UserResponse(
-        String id,
+        String userId,
         String username,
         String password,
-        String role
+        String role,
+        String property,
+        String propertyId,
+        String portal
 ) {
 }

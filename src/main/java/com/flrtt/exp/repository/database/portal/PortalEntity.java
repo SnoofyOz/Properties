@@ -20,7 +20,4 @@ public class PortalEntity {
     String id;
     String name;
     String description;
-
-    @ManyToMany(mappedBy = "portals")
-    private Set<PropertyEntity> properties;
 }

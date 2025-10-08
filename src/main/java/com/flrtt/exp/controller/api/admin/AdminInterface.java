@@ -9,34 +9,36 @@ import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-import static com.flrtt.exp.constants.PathConstants.*;
-
-@RequestMapping(API_ADMIN)
+@RequestMapping("/v1/api/admin")
 public interface AdminInterface {
 
-    @GetMapping(ALL_USER)
+    @GetMapping("/users")
     List<UserResponse> findAllUser(
             @RequestParam(value = "code" , required = false) String code
     );
 
-    @GetMapping(USER_ID)
+    @GetMapping("/users/{id}")
     User findById(@PathVariable String id);
 
-    @PutMapping(USER_ID)
+    @PutMapping("/users/{id}")
     void update(
             @PathVariable String id,
             @RequestBody @Valid UserRequest request
     );
-    @DeleteMapping(USER_ID)
+    @DeleteMapping("/users/{id}")
     void delete(@PathVariable String id);
 
-    @GetMapping(ALL_PROPERTY)
+    @GetMapping("/properties")
     List<PropertyResponse> findAllProperties(
             @RequestParam(value = "code" , required = false) String code
     );
 
-    @GetMapping(ALL_PORTAL)
+    @GetMapping("/portals")
     List<PortalResponse> findAllPortal(
             @RequestParam(value = "code" , required = false) String code
+    );
+    @GetMapping("/users/test")
+    List<UserResponse> findAllByOrderByUsernameAsc(
+        @RequestParam(value = "code" , required = false) String code
     );
 }

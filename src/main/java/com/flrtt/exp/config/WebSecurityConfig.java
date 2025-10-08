@@ -61,9 +61,10 @@ public class WebSecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
-                                "/api/auth/**").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/api/users").permitAll()
-                        .requestMatchers("/api/admin/**").hasRole("SYSTEM_ADMIN")
+                                "v1/api/auth/**",
+                                "v1/api/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "v1/api/users").permitAll()
+                        .requestMatchers("v1/api/admin/**").hasRole("SYSTEM_ADMIN")
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session

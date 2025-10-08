@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Entity
 @Data
@@ -17,16 +18,8 @@ import java.util.Set;
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    String id;
+    String userId;
     String username;
     String password;
     String role;
-
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "user_property",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "property_id")
-    )
-    Set<PropertyEntity> properties;
 }

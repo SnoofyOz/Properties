@@ -75,4 +75,12 @@ public class AdminController implements AdminInterface {
                 .toList();
     }
 
+    @Override
+    public List<UserResponse> findAllByOrderByUsernameAsc(String code) {
+        List<User> users = userUseCaseService.findAllByOrderByUsernameAsc(code);
+        return users.stream()
+                .map(userModelMapper::toModels)
+                .toList();
+    }
+
 }
