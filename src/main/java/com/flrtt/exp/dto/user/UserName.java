@@ -1,0 +1,6 @@
+package com.flrtt.exp.dto.user;
+
+public record UserName(
+        String username
+) {
+}
