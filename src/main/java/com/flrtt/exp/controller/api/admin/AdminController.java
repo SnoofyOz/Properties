@@ -4,7 +4,8 @@ import com.flrtt.exp.controller.api.portal.models.PortalModelMapper;
 import com.flrtt.exp.controller.api.portal.models.PortalResponse;
 import com.flrtt.exp.controller.api.property.models.PropertyModelMapper;
 import com.flrtt.exp.controller.api.property.models.PropertyResponse;
-import com.flrtt.exp.controller.api.user.models.UserModelMapper;
+import com.flrtt.exp.controller.api.user.models.UserRequestMapper;
+import com.flrtt.exp.controller.api.user.models.UserResponseMapper;
 import com.flrtt.exp.controller.api.user.models.UserRequest;
 import com.flrtt.exp.controller.api.user.models.UserResponse;
 import com.flrtt.exp.dto.portal.Portal;
@@ -28,7 +29,8 @@ import java.util.List;
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class AdminController implements AdminInterface {
     UserUseCaseService userUseCaseService;
-    UserModelMapper userModelMapper;
+    UserResponseMapper userResponseMapper;
+    UserRequestMapper userRequestMapper;
     PropertyUseCaseService propertyUseCaseService;
     PropertyModelMapper propertyModelMapper;
     PortalUseCaseService portalUseCaseService;
@@ -39,7 +41,7 @@ public class AdminController implements AdminInterface {
     public List<UserResponse> findAllUser(String code) {
         List<User> users = userUseCaseService.findAll(code);
         return users.stream()
-                .map(userModelMapper::toModels)
+                .map(userResponseMapper::toModels)
                 .toList();
     }
 
@@ -50,7 +52,7 @@ public class AdminController implements AdminInterface {
 
     @Override
     public void update(String id, UserRequest request) {
-        User req = userModelMapper.toDto(request);
+        User req = userRequestMapper.toDto(request);
         userUseCaseService.updateUser(id, req);
     }
 
@@ -77,9 +79,9 @@ public class AdminController implements AdminInterface {
 
     @Override
     public List<UserResponse> findAllByOrderByUsernameAsc(String code) {
-        List<User> users = userUseCaseService.findAllByOrderByUsernameAsc(code);
+        List<User> users = userUseCaseService.findPortalByUsername(code);
         return users.stream()
-                .map(userModelMapper::toModels)
+                .map(userResponseMapper::toModels)
                 .toList();
     }
 

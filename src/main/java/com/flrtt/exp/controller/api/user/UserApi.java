@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RequestMapping("/v1/api/users")
-public interface UserInterface {
+public interface UserApi {
     @GetMapping("/{username}")
     User findByUsername(@PathVariable String username);
 

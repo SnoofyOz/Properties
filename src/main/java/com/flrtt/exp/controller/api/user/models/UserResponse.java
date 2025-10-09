@@ -5,8 +5,9 @@ public record UserResponse(
         String username,
         String password,
         String role,
-        String property,
         String propertyId,
-        String portal
+        String propertyName,
+        String portalId,
+        String portalName
 ) {
 }

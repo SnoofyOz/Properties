@@ -41,4 +41,5 @@ public interface AdminInterface {
     List<UserResponse> findAllByOrderByUsernameAsc(
         @RequestParam(value = "code" , required = false) String code
     );
+
 }

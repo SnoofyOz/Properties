@@ -4,8 +4,8 @@ package com.flrtt.exp.service.user;
 import com.flrtt.exp.dto.user.User;
 import com.flrtt.exp.dto.user.UserId;
 import com.flrtt.exp.dto.user.UserName;
-import jakarta.transaction.Transactional;
 import lombok.AccessLevel;
+import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Service;
@@ -29,24 +29,28 @@ public class UserUseCaseService {
         commandService.update(id, request);
     }
 
+    @Transactional
+    public void deleteUser(String id) {
+        commandService.delete(id);
+    }
+
+    @Transactional(readOnly = true)
     public User findById(UserId id) {
         return queryService.findById(id);
     }
 
+    @Transactional(readOnly = true)
     public User findByUsername(UserName username) {
         return queryService.findByUsername(username);
     }
 
+    @Transactional(readOnly = true)
     public List<User> findAll(String code) {
         return queryService.findAll();
     }
 
-    public List<User> findAllByOrderByUsernameAsc(String code) {
-        return queryService.findByUsernameDetails();
-    }
-
-    @Transactional
-    public void deleteUser(String id) {
-        commandService.delete(id);
+    @Transactional(readOnly = true)
+    public List<User> findPortalByUsername(String code) {
+        return queryService.findPortalByUsername();
     }
 }

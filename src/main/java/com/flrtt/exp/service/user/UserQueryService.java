@@ -38,9 +38,19 @@ public class UserQueryService {
                 .map(mapper::toDto)
                 .toList();
     }
-    public List<User> findByUsernameDetails(){
-        List<User> userDTO = userRepository.findByUsernameDetails();
+    public List<User> findPortalByUsername(){
+        List<UserRepository.UserProjection> userDTO = userRepository.findPortalByUsername();
         return userDTO.stream()
+                .map(user -> new User(
+                        user.getUserId(),
+                        user.getUsername(),
+                        user.getPassword(),
+                        user.getRole(),
+                        user.getPropertyId(),
+                        user.getPropertyName(),
+                        user.getPortalId(),
+                        user.getPortalName()
+                ))
                 .toList();
     }
 }

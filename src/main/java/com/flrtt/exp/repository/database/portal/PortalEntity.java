@@ -17,7 +17,7 @@ import java.util.Set;
 public class PortalEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    String id;
-    String name;
+    String portalId;
+    String portalName;
     String description;
 }

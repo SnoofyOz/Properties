@@ -18,6 +18,6 @@ import java.util.Set;
 public class PropertyEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    String id;
+    String propertyId;
     String propertyName;
 }

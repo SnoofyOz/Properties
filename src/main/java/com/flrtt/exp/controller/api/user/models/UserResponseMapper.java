@@ -7,8 +7,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 @Mapper(config = MapStructGlobalConfig.class)
-public interface UserModelMapper {
+public interface UserResponseMapper {
     @Mapping(target = "userId", source = "userId")
     UserResponse toModels(User user);
-    User toDto(UserRequest request);
+    User toDto(UserResponse response);
 }
