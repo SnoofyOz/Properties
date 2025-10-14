@@ -1,4 +1,4 @@
-package com.flrtt.exp.dto.property;
+package com.flrtt.exp.domain.property;
 
 public record Property(
         String propertyId,

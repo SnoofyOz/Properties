@@ -1,13 +1,12 @@
 package com.flrtt.exp.controller.api.property;
 
 
-import com.flrtt.exp.dto.property.Property;
+import com.flrtt.exp.domain.property.Property;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import static com.flrtt.exp.bootstrap.constants.PathConstants.API_PROPERTIES;
 
-@RequestMapping(API_PROPERTIES)
+@RequestMapping("/v1/api/properties")
 public interface PropertyInterface {
 
     @GetMapping("/{id}")

@@ -1,7 +1,7 @@
 package com.flrtt.exp.repository.database.portal;
 
 
-import com.flrtt.exp.dto.portal.Portal;
+import com.flrtt.exp.domain.portal.Portal;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

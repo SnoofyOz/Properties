@@ -138,7 +138,6 @@ const UserList = () => {
             <Table striped bordered hover responsive>
                 <thead>
                     <tr>
-                        <th>ID</th>
                         <th>Username</th>
                         <th>Role</th>
                         <th>Actions</th>
@@ -146,13 +145,12 @@ const UserList = () => {
                 </thead>
                 <tbody>
                     {users.map(user => (
-                        <tr key={user.id}>
-                            <td>{user.id}</td>
+                        <tr key={user.userId}>
                             <td>{user.username}</td>
                             <td>{user.role}</td>
                             <td>
                                 <Button variant="warning" size="sm" className="me-2" onClick={() => handleEditClick(user)}>Sửa</Button>
-                                <Link to={`/admin/user/${user.id}`}>
+                                <Link to={`/admin/users/${user.userId}`}>
                                     <Button variant="info" size="sm" className="me-2">Xem</Button>
                                 </Link>
                                 <Button variant="danger" size="sm" onClick={() => handleDelete(user.id)}>Xóa</Button>

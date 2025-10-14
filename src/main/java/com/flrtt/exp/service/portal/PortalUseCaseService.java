@@ -1,9 +1,7 @@
 package com.flrtt.exp.service.portal;
 
 
-import com.flrtt.exp.dto.portal.Portal;
-import com.flrtt.exp.dto.property.Property;
-import com.flrtt.exp.service.property.PropertyQueryService;
+import com.flrtt.exp.domain.portal.Portal;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;

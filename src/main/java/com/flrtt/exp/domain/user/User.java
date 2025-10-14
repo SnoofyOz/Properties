@@ -1,4 +1,4 @@
-package com.flrtt.exp.dto.user;
+package com.flrtt.exp.domain.user;
 
 public record User(
         String userId,

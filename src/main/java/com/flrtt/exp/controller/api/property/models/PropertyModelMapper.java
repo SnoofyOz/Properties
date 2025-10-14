@@ -1,6 +1,6 @@
 package com.flrtt.exp.controller.api.property.models;
 
-import com.flrtt.exp.dto.property.Property;
+import com.flrtt.exp.domain.property.Property;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

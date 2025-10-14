@@ -1,13 +1,10 @@
 package com.flrtt.exp.repository.database.user;
 
-import com.flrtt.exp.repository.database.property.PropertyEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 @Entity
 @Data

@@ -16,7 +16,7 @@ export const routes = [
         isShowHeader: true
     },
     {
-        path: 'admin/users',
+        path: '/admin/users',
         page: User,
         isShowHeader: true
     },
@@ -56,7 +56,7 @@ export const routes = [
         isShowHeader: true
     },
     {
-        path: '/admin/user/:id',
+        path: '/admin/users/:id',
         page: UserDetail,
         isShowHeader: true
     }

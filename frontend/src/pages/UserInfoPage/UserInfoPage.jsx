@@ -80,7 +80,7 @@ const UserInfoPage = () => {
                             <ListGroup variant="flush">
                                 <ListGroup.Item>
                                     <Row>
-                                        <Col xs={4} className="fw-bold text-start">ID:</Col>
+                                        <Col xs={4} className="fw-bold text-start">UserID:</Col>
                                         <Col xs={8} className="text-start text-muted">{user.userId}</Col>
                                     </Row>
                                 </ListGroup.Item>
@@ -92,7 +92,13 @@ const UserInfoPage = () => {
                                 </ListGroup.Item>
                                 <ListGroup.Item>
                                     <Row>
-                                        <Col xs={4} className="fw-bold text-start">Tên Đầy Đủ:</Col>
+                                        <Col xs={4} className="fw-bold text-start">Property:</Col>
+                                        <Col xs={8} className="text-start">{user.fullName || 'Chưa cập nhật'}</Col>
+                                    </Row>
+                                </ListGroup.Item>
+                                <ListGroup.Item>
+                                    <Row>
+                                        <Col xs={4} className="fw-bold text-start">Portal:</Col>
                                         <Col xs={8} className="text-start">{user.fullName || 'Chưa cập nhật'}</Col>
                                     </Row>
                                 </ListGroup.Item>

@@ -2,7 +2,7 @@ package com.flrtt.exp.repository.database.user;
 
 
 import com.flrtt.exp.bootstrap.mapper.MapStructGlobalConfig;
-import com.flrtt.exp.dto.user.User;
+import com.flrtt.exp.domain.user.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

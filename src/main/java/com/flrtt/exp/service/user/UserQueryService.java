@@ -1,9 +1,9 @@
 package com.flrtt.exp.service.user;
 
 
-import com.flrtt.exp.dto.user.User;
-import com.flrtt.exp.dto.user.UserId;
-import com.flrtt.exp.dto.user.UserName;
+import com.flrtt.exp.domain.user.User;
+import com.flrtt.exp.domain.user.UserId;
+import com.flrtt.exp.domain.user.UserName;
 import com.flrtt.exp.repository.database.user.UserEntity;
 import com.flrtt.exp.repository.database.user.UserEntityMapper;
 import com.flrtt.exp.repository.database.user.UserRepository;
@@ -38,9 +38,9 @@ public class UserQueryService {
                 .map(mapper::toDto)
                 .toList();
     }
-    public List<User> findPortalByUsername(){
-        List<UserRepository.UserProjection> userDTO = userRepository.findPortalByUsername();
-        return userDTO.stream()
+    public List<User> findPortalByUsername(UserName username){
+        List<UserRepository.UserProjection> userDTOs = userRepository.findPortalByUsername(username.username());
+        return userDTOs.stream()
                 .map(user -> new User(
                         user.getUserId(),
                         user.getUsername(),

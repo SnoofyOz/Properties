@@ -1,7 +1,7 @@
 package com.flrtt.exp.service.user;
 
 
-import com.flrtt.exp.dto.user.User;
+import com.flrtt.exp.domain.user.User;
 import com.flrtt.exp.repository.database.user.UserEntity;
 import com.flrtt.exp.repository.database.user.UserEntityMapper;
 import com.flrtt.exp.repository.database.user.UserRepository;

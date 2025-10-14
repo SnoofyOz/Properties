@@ -4,7 +4,7 @@ import com.flrtt.exp.controller.api.portal.models.PortalResponse;
 import com.flrtt.exp.controller.api.property.models.PropertyResponse;
 import com.flrtt.exp.controller.api.user.models.UserRequest;
 import com.flrtt.exp.controller.api.user.models.UserResponse;
-import com.flrtt.exp.dto.user.User;
+import com.flrtt.exp.domain.user.User;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -37,9 +37,7 @@ public interface AdminInterface {
     List<PortalResponse> findAllPortal(
             @RequestParam(value = "code" , required = false) String code
     );
-    @GetMapping("/users/test")
-    List<UserResponse> findAllByOrderByUsernameAsc(
-        @RequestParam(value = "code" , required = false) String code
-    );
+    @GetMapping("/users/test/{username}")
+    List<UserResponse> findAllDetails(@PathVariable String username);
 
 }

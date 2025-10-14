@@ -1,4 +1,4 @@
-package com.flrtt.exp.config;
+package com.flrtt.exp.configuration;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpMethod;
@@ -21,8 +21,6 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-
-import java.lang.reflect.Method;
 
 
 @Configuration
@@ -61,10 +59,10 @@ public class WebSecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
-                                "v1/api/auth/**",
-                                "v1/api/**").permitAll()
-                        .requestMatchers(HttpMethod.POST, "v1/api/users").permitAll()
-                        .requestMatchers("v1/api/admin/**").hasRole("SYSTEM_ADMIN")
+                                "/v1/api/auth/**",
+                                "/v1/api/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/v1/api/users").permitAll()
+                        .requestMatchers("/v1/api/admin/**").hasRole("SYSTEM_ADMIN")
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session

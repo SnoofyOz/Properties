@@ -1,6 +1,6 @@
 package com.flrtt.exp.controller.api.authentication.models;
 
-import com.flrtt.exp.dto.authentication.Auth;
+import com.flrtt.exp.domain.authentication.Auth;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

@@ -8,10 +8,11 @@ import com.flrtt.exp.controller.api.user.models.UserRequestMapper;
 import com.flrtt.exp.controller.api.user.models.UserResponseMapper;
 import com.flrtt.exp.controller.api.user.models.UserRequest;
 import com.flrtt.exp.controller.api.user.models.UserResponse;
-import com.flrtt.exp.dto.portal.Portal;
-import com.flrtt.exp.dto.property.Property;
-import com.flrtt.exp.dto.user.User;
-import com.flrtt.exp.dto.user.UserId;
+import com.flrtt.exp.domain.portal.Portal;
+import com.flrtt.exp.domain.property.Property;
+import com.flrtt.exp.domain.user.User;
+import com.flrtt.exp.domain.user.UserId;
+import com.flrtt.exp.domain.user.UserName;
 import com.flrtt.exp.service.portal.PortalUseCaseService;
 import com.flrtt.exp.service.property.PropertyUseCaseService;
 import com.flrtt.exp.service.user.UserUseCaseService;
@@ -78,8 +79,8 @@ public class AdminController implements AdminInterface {
     }
 
     @Override
-    public List<UserResponse> findAllByOrderByUsernameAsc(String code) {
-        List<User> users = userUseCaseService.findPortalByUsername(code);
+    public List<UserResponse> findAllDetails(String username) {
+        List<User> users = userUseCaseService.findPortalByUsername(new UserName(username));
         return users.stream()
                 .map(userResponseMapper::toModels)
                 .toList();

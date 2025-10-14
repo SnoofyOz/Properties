@@ -1,4 +1,4 @@
-package com.flrtt.exp.dto.authentication;
+package com.flrtt.exp.domain.authentication;
 
 public record Auth(
         String username,

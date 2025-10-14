@@ -1,9 +1,9 @@
 package com.flrtt.exp.service.user;
 
 
-import com.flrtt.exp.dto.user.User;
-import com.flrtt.exp.dto.user.UserId;
-import com.flrtt.exp.dto.user.UserName;
+import com.flrtt.exp.domain.user.User;
+import com.flrtt.exp.domain.user.UserId;
+import com.flrtt.exp.domain.user.UserName;
 import lombok.AccessLevel;
 import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -50,7 +50,7 @@ public class UserUseCaseService {
     }
 
     @Transactional(readOnly = true)
-    public List<User> findPortalByUsername(String code) {
-        return queryService.findPortalByUsername();
+    public List<User> findPortalByUsername(UserName username) {
+        return queryService.findPortalByUsername(username);
     }
 }

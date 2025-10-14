@@ -18,7 +18,7 @@ const UserDetail = () => {
         setLoading(true);
         setError(null);
 
-        fetch(`http://localhost:8080/v1/api/admin/user/${id}`, { 
+        fetch(`http://localhost:8080/v1/api/admin/users/${id}`, { 
             headers: {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json',
@@ -63,8 +63,6 @@ const UserDetail = () => {
             </Container>
         );
     }
-
-    // Xử lý trạng thái lỗi và không tìm thấy (kiểm tra `error` hoặc `!user`)
     if (error || !user) {
         return (
             <Container className="mt-5">
@@ -75,8 +73,6 @@ const UserDetail = () => {
             </Container>
         );
     }
-
-    // Hiển thị chi tiết người dùng (Success State)
     return (
         <Container className="my-5">
             <h2 className="mb-4 text-center text-primary">Chi tiết Người Dùng</h2>
@@ -90,7 +86,6 @@ const UserDetail = () => {
 
                         <Card.Body>
                             <ListGroup variant="flush">
-                                {/* Username */}
                                 <ListGroup.Item>
                                     <Row>
                                         <Col xs={4} className="fw-bold text-start">Username:</Col>
@@ -101,7 +96,7 @@ const UserDetail = () => {
                                 <ListGroup.Item>
                                     <Row>
                                         <Col xs={4} className="fw-bold text-start">ID:</Col>
-                                        <Col xs={8} className="text-start text-muted">{user.id}</Col>
+                                        <Col xs={8} className="text-start text-muted">{user.userId}</Col>
                                     </Row>
                                 </ListGroup.Item>
                             </ListGroup>

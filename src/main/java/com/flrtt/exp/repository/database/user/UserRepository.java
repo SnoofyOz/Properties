@@ -17,17 +17,18 @@ public interface UserRepository extends JpaRepository<UserEntity, String> {
                 u.username as username,
                 u.password as password,
                 u.role as role,
-                p.propertyName as propertyName,
                 up.propertyId as propertyId,
-                pe.portalId as portalId,
+                p.propertyName as propertyName,
+                ppe.portalId as portalId,
                 pe.portalName as portalName
             FROM UserEntity u
             JOIN UserPropertyEntity up ON u.userId = up.userId
             JOIN PropertyEntity p ON up.propertyId = p.propertyId
             JOIN PropertyPortalEntity ppe ON p.propertyId = ppe.propertyId
             JOIN PortalEntity pe ON ppe.portalId = pe.portalId
+            WHERE u.username = :username
     """)
-    List<UserProjection> findPortalByUsername();
+    List<UserProjection> findPortalByUsername(String username);
 
     public interface UserProjection {
         String getUserId();

@@ -1,4 +1,4 @@
-package com.flrtt.exp.dto.portal;
+package com.flrtt.exp.domain.portal;
 
 public record Portal(
         String portalId,

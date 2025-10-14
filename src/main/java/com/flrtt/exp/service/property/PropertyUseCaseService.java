@@ -1,8 +1,8 @@
 package com.flrtt.exp.service.property;
 
 
-import com.flrtt.exp.dto.property.Property;
-import com.flrtt.exp.dto.property.PropertyId;
+import com.flrtt.exp.domain.property.Property;
+import com.flrtt.exp.domain.property.PropertyId;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;

@@ -1,4 +1,4 @@
-package com.flrtt.exp.config;
+package com.flrtt.exp.configuration;
 
 import com.flrtt.exp.service.authentication.JwtService;
 import jakarta.servlet.FilterChain;
